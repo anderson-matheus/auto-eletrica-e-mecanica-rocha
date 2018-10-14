@@ -1,3 +1,13 @@
+<?php
+    $url = (isset($_GET['url'])) ? $_GET['url'] : 'home';
+    $url = array_filter(explode('/',$url));
+    $file = $url[0].'.php';
+    if (count($url) > 1) {
+        header("Location: http://localhost/auto-eletrica-e-mecanica-rocha/");
+        die;
+    }
+?>
+
 <!DOCTYPE html>
 <html class="no-js" lang="zxx">
 
@@ -8,7 +18,27 @@
     <!--=== Favicon ===-->
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
 
-    <title>Cardoor - Car Rental HTML Template</title>
+    <title>
+        <?php
+            switch($file) {
+                case 'home.php':
+                    echo 'Auto Elétrica e Mecânica Rocha - Home';
+                    break;
+                case 'sobre.php':
+                    echo 'Auto Elétrica e Mecânica Rocha - Sobre Nós';
+                    break;
+                case 'servicos.php':
+                    echo 'Auto Elétrica e Mecânica Rocha - Nossos Serviços';
+                    break;
+                case 'contato.php':
+                    echo 'Auto Elétrica e Mecânica Rocha - Nossos Contato';
+                    break;
+                default:
+                    echo 'Auto Elétrica e Mecânica Rocha - Página não encontrada';
+                    break;
+            }
+        ?>        
+    </title>
 
     <!--=== Bootstrap CSS ===-->
     <link href="assets/css/bootstrap.min.css" rel="stylesheet">
@@ -81,7 +111,7 @@
                 <div class="row">
                     <!--== Logo Start ==-->
                     <div class="col-lg-4">
-                        <a href="index.html" class="logo">
+                        <a href="home" class="logo">
                             <img src="assets/img/logo.png" alt="JSOFT">
                         </a>
                     </div>
@@ -91,10 +121,10 @@
                     <div class="col-lg-8 d-none d-xl-block">
                         <nav class="mainmenu alignright">
                             <ul>
-                                <li class="active"><a href="#">Home</a></li>
-                                <li><a href="about.html">Sobre</a></li>
-                                <li><a href="services.html">Serviços</a></li>
-                                <li><a href="contact.html">Contato</a></li>
+                                <li <?= $file == 'home.php' ? 'class="active"' : '' ?>><a href="home">Home</a></li>
+                                <li <?= $file == 'sobre.php' ? 'class="active"' : '' ?>><a href="sobre">Sobre</a></li>
+                                <li <?= $file == 'servicos.php' ? 'class="active"' : '' ?>><a href="servicos">Serviços</a></li>
+                                <li <?= $file == 'contato.php' ? 'class="active"' : '' ?>><a href="contato">Contato</a></li>
                             </ul>
                         </nav>
                     </div>
@@ -106,133 +136,13 @@
     </header>
     <!--== Header Area End ==-->
 
-    <!--== Page Title Area Start ==-->
-    <section id="page-title-area" class="section-padding overlay">
-        <div class="container">
-            <div class="row">
-                <!-- Page Title Start -->
-                <div class="col-lg-12">
-                    <div class="section-title  text-center">
-                        <h2>Nossos serviços</h2>
-                        <span class="title-line"><i class="fa fa-car"></i></span>
-                    </div>
-                </div>
-                <!-- Page Title End -->
-            </div>
-        </div>
-    </section>
-    <!--== Page Title Area End ==-->
-
-    <!--== Service Page Content Start ==-->
-    <section id="service-page-wrapper" class="section-padding">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <!-- Single Services Start -->
-                    <div class="single-service-item">
-                        <h3>Serviços Mecânicos</h3>
-                        <b>Todas as Marcas e Modelos (Veículos Nacionais e Importados)</b>
-                        <p>Quantas vezes você precisou de suporte mecânico? Não importa se você tem seguro
-                            automotivo ou não, em um determinando momento você pode precisar de atendimento de
-                            urgência ou preventivo. A Auto Elétrica e Mecânica Rocha é uma empresa conceituada que
-                            oferece serviços mecânicos para todas as marcas e modelos automotivos. Tenha sempre a
-                            mão o nosso contato. Nós vamos até você para solucionar qualquer que seja a sua
-                            necessidade.</p>
-                        <ul>
-                            <li><i class="fa fa-check"></i> Freios</li>
-                            <li><i class="fa fa-check"></i> Motor</li>
-                            <li><i class="fa fa-check"></i> Câmbio</li>
-                            <li><i class="fa fa-check"></i> Manutenção</li>
-                            <li><i class="fa fa-check"></i> Inspeção</li>
-                            <li><i class="fa fa-check"></i> Regulagem, entre outros.</li>
-                        </ul>
-                    </div>
-                    <!-- Single Services End -->
-                    <hr />
-                    <!-- Single Services Start -->
-                    <div class="single-service-item">
-                        <h3>Serviços Elétricos</h3>
-                        <b>Elétrica automotiva completa</b>
-                        <p>Já parou para imaginar você em uma via expressa e do nado surge uma pane elétrica no seu
-                            carro? Agora você tem a quem recorrer. A Auto Elétrica e Mecânica Rocha é preparada para
-                            atender você e seu veículo, onde quer que você esteja. Desde a simples troca de bateria,
-                            até injeção eletrônica, ou motor de arranque. Guarde nosso contato, se precisar estamos á
-                            disposição.</p>
-                        <ul>
-                            <li><i class="fa fa-check"></i> Injeção Eletrônica </li>
-                            <li><i class="fa fa-check"></i> Baterias</li>
-                            <li><i class="fa fa-check"></i> Inspeção</li>
-                            <li><i class="fa fa-check"></i> Ignição</li>
-                            <li><i class="fa fa-check"></i> Regulagem, entre outros.</li>
-                        </ul>
-                    </div>
-                    <!-- Single Services End -->
-                    <hr />
-                    <!-- Single Services Start -->
-                    <div class="single-service-item">
-                        <h3>Serviços Rápidos</h3>
-                        <b>Chaves codificadas, Troca de óleo, Scanners</b>
-                        <p>Nossa equipe vai até onde o seu veículo está e realiza o reparo necessário para você
-                            continuar rodando e não perder aquele compromisso importante. Conte com a nossa equipe
-                            altamente qualificada e apaixonada pelo que faz. A Auto Elétrica e Mecânica Rocha opera com
-                            atendimento de segunda a sábado das 08:00 as 17:30 na Grande São Paulo e Região. Ligue para
-                            nós.</p>
-                        <ul>
-                            <li><i class="fa fa-check"></i> Chaveiro/Abertura</li>
-                            <li><i class="fa fa-check"></i> Trocas</li>
-                            <li><i class="fa fa-check"></i> Reparos</li>
-                            <li><i class="fa fa-check"></i> Limpeza de bicos</li>
-                            <li><i class="fa fa-check"></i> Troca de velas, cabos e filtros</li>
-                            <li><i class="fa fa-check"></i> Troca de óleo</li>
-                            <li><i class="fa fa-check"></i> Troca de correia dentada</li>
-                            <li><i class="fa fa-check"></i> Scanners, entre outros.</li>
-                        </ul>
-                    </div>
-                    <!-- Single Services End -->
-                </div>
-            </div>
-        </div>
-    </section>
-    <!--== Service Page Content End ==-->
-
-    <!--== Testimonials Area Start ==-->
-    <section id="testimonial-area" class="section-padding">
-        <div class="container">
-            <div class="row">
-                <!-- Section Title Start -->
-                <div class="col-lg-12">
-                    <div class="section-title  text-center">
-                        <h2>Galeria</h2>
-                        <span class="title-line"><i class="fa fa-car"></i></span>
-                    </div>
-                </div>
-                <!-- Section Title End -->
-            </div>
-
-            <div class="row">
-                <div class="col-lg-8 col-md-12 m-auto">
-                    <div class="testimonial-content">
-                        <div>
-                            <img src="/assets/img/01.jpg" alt="Auto Elétrica e Mecânica Rocha" />
-                        </div>
-                        <div>
-                            <img src="/assets/img/05.jpg" alt="Auto Elétrica e Mecânica Rocha" />
-                        </div>
-                        <div>
-                            <img src="/assets/img/08.jpg" alt="Auto Elétrica e Mecânica Rocha" />
-                        </div>
-                        <div>
-                            <img src="/assets/img/09.jpg" alt="Auto Elétrica e Mecânica Rocha" />
-                        </div>
-                        <div>
-                            <img src="/assets/img/10.jpg" alt="Auto Elétrica e Mecânica Rocha" />
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!--== Testimonials Area End ==-->
+    <?php        
+        if(file_exists($file)){
+            include $file;
+        } else {
+            include '404.php';
+        }            
+    ?>
 
     <!--== Footer Area Start ==-->
     <section id="footer-area">
@@ -266,7 +176,7 @@
                                     <li class="text-white"><i class="fa fa-mobile"></i> +55 11 95736-9748</li>
                                     <li class="text-white"><i class="fa fa-envelope"></i> email para contato</li>
                                 </ul>
-                                <a href="https://goo.gl/maps/b5mt45MCaPB2" class="map-show" target="_blank">Localização</a>
+                                <a href="https://goo.gl/Xf91MJ" class="map-show" target="_blank">Localização</a>
                             </div>
                         </div>
                     </div>
