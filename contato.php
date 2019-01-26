@@ -58,7 +58,7 @@
                 <div class="service-item">
                     <i class="fa fa-taxi"></i>
                     <h3>E-mail</h3>
-                    <p>Envie um e-mail para este endereço <b>contato@mecanicarocha.com.br</b> que nós responderemos
+                    <p>Envie um e-mail para este endereço <b>edivaldo_felisberto@hotmail.com</b> que nós responderemos
                         você o mais rápido possível</p>
                 </div>
             </div>

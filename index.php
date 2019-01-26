@@ -174,7 +174,7 @@
                                     <li class="text-white"><i class="fa fa-map-marker"></i> Est. dos romeiros, 3192 -
                                         Paiol 1</li>
                                     <li class="text-white"><i class="fa fa-mobile"></i> +55 11 95736-9748</li>
-                                    <li class="text-white"><i class="fa fa-envelope"></i> email para contato</li>
+                                    <li class="text-white"><i class="fa fa-envelope"></i> edivaldo_felisberto@hotmail.com</li>
                                 </ul>
                                 <a href="https://goo.gl/Xf91MJ" class="map-show" target="_blank">Localização</a>
                             </div>
